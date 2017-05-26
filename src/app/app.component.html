@@ -1,5 +1,12 @@
-<h1>
-  {{title}}
+<h1 *ngIf='tittle'>
+  {{tittle}}
 </h1>
 
-<button ng-click="login()"></button>
+<form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
+  <input name="first" ngModel required #first="ngModel">
+  <input name="password" type="password" ngModel>
+  <button>Submit</button>
+</form>
+  <p class="{{ f.valid }}">form valid?</p>
+
+<button (click)="login()">dfdfdfdf</button>

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { LoginService } from './services/login.service';
+import {NgForm} from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -9,9 +10,23 @@ import { LoginService } from './services/login.service';
 })
 export class AppComponent {
 
-
+ 
+  private tittle: string;
+  private userLoginData: any = {
+    usermail: "string",
+    userpass: "string"
+  };
   constructor(
     private loginserv: LoginService) {
   }
-  title = this.loginserv.login({email: 'zimbo222@mail.ru', password: '05555'});
+  onSubmit(f: NgForm) {
+    console.log(f.value);  // { first: '', last: '' }
+    this.login(f.value);
+  }
+  login(userLoginData) {
+    this.loginserv.login(userLoginData).subscribe((response: any) => {
+      this.tittle = JSON.stringify(JSON.parse(response._body)[0]);
+      console.log(JSON.stringify(userLoginData));
+    });
+  }
 }

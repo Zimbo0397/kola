@@ -7,10 +7,19 @@ export interface UserLoginRes {
 		user:{
 			id:string,
 			email:string,
-			firstName:string,
-			lastName:string,
+			display_name:string,
+			first_name:string,
+			last_name:string,
+			avatar:string,
+			role:string,
+			authorization_token:string
 		},
 		code:number,
 		message:string
 	}
+}
+
+export interface loginObj {
+	usermail: string,
+	userpass: string
 }
