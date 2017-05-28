@@ -1,12 +1,17 @@
-<h1 *ngIf='tittle'>
-  {{tittle}}
-</h1>
 
-<form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
-  <input name="first" ngModel required #first="ngModel">
-  <input name="password" type="password" ngModel>
-  <button>Submit</button>
-</form>
-  <p class="{{ f.valid }}">form valid?</p>
+<div class="top-line">
+    <img src="https://cdn2.iconfinder.com/data/icons/website-icons/512/User_Avatar-512.png" alt="">
+    <span>{{userName ? userName : 'Ваш профиль'}}</span>
+</div>
+<div class="login-holder">
+  <div class="login-box">
+    <div class="login-tabs">
+    <ul class="login-tabs__content">
+        <router-outlet></router-outlet>    
+    </ul>
+    </div>
+  </div>
+</div>
 
-<button (click)="login()">dfdfdfdf</button>
+<button (click) = 'getUser()'>button</button>
+

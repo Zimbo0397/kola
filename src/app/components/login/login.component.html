@@ -1,0 +1,20 @@
+<li class="active content-item">
+  <h3>Вход</h3>
+    <div class="login-form">
+        <form #f="ngForm" (ngSubmit)="onSubmitLogin(f)" novalidate class="default">
+            <fieldset class="standard-login-box">
+                <div class="fblock">
+                    <div class="focusbox">
+                        <input name="email" type="email" ngModel required placeholder="Email-адрес" title="Email-адрес (в учётную зап)">
+                    </div>
+                </div>
+                <div class="fblock ">
+                    <div class="focusbox">
+                        <input name="password" type="password" ngModel placeholder="Ваш текущий пароль" title="Ваш текущий пароль">
+                    </div>
+                </div>
+                <button (click)="login()" class="login-button">Войти</button>
+            </fieldset>
+        </form>
+    </div>
+</li>

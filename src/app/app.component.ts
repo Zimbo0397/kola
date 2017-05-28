@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
-import { LoginService } from './services/login.service';
+import { Component, OnInit} from '@angular/core';
 import {NgForm} from '@angular/forms';
+import {LoginService} from './services/login.service'
 
 @Component({
   selector: 'app-root',
@@ -8,25 +8,22 @@ import {NgForm} from '@angular/forms';
   styleUrls: ['./app.component.css'],
   providers: [LoginService]
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
 
- 
-  private tittle: string;
-  private userLoginData: any = {
-    usermail: "string",
-    userpass: "string"
-  };
-  constructor(
-    private loginserv: LoginService) {
+
+  userName: any;
+
+  constructor(private LoginServ: LoginService) {
   }
-  onSubmit(f: NgForm) {
-    console.log(f.value);  // { first: '', last: '' }
-    this.login(f.value);
+
+  ngOnInit() {
+    this.userName = this.LoginServ.getUser();
   }
-  login(userLoginData) {
-    this.loginserv.login(userLoginData).subscribe((response: any) => {
-      this.tittle = JSON.stringify(JSON.parse(response._body)[0]);
-      console.log(JSON.stringify(userLoginData));
-    });
+
+  getUser() {
+    this.userName = this.LoginServ.getUser();
+    this.LoginServ.getUser();
+    console.log(this.userName);
   }
+
 }

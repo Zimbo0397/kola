@@ -1,0 +1,36 @@
+<li class="content-item">
+  <h3>Регистрация</h3>
+    <p>статус регистрации{{registerStatus}}</p>
+    <form #r="ngForm" (ngSubmit)="onSubmitRegistration(r)" class="login-form default" >
+        <div class="fblock">
+            <div class="focusbox">
+                <input name="email" type="email" ngModel required placeholder="Email-адрес" title="Email-адрес (в учётную запись)">
+            </div>
+        </div>
+        <div class="fblock">
+            <div class="focusbox">
+                <input name="password" type="password" required ngModel placeholder="Ваш текущий пароль" title="Ваш пароль ">
+                <i data-icon="eye" class="hidden"></i>
+            </div>
+        </div>
+        <div class="fblock">
+            <div class="focusbox">
+                <input name="firstName" type="text" ngModel placeholder="Ваше Имя" title="Ваше Имя">
+                <i data-icon="eye" class="hidden"></i>
+            </div>
+        </div>
+        <div class="fblock">
+            <div class="focusbox">
+                <input name="lastName" type="text" ngModel placeholder="Ваша Фамилия" title="Ваша Фамилия">
+                <i data-icon="eye" class="hidden"></i>
+            </div>
+        </div>
+        <div class="fblock">
+            <div class="focusbox">
+                <input name="systemName" type="text" ngModel required placeholder="Ваша Login" title="Ваш псевдоним для входа">
+                <i data-icon="eye" class="hidden"></i>
+            </div>
+        </div>
+        <button id="button_register" class="login-button">Регистрация</button>
+    </form>
+</li>

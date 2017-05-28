@@ -2,6 +2,7 @@ export interface userLoginReq {
     email: string,
     password: string
 }
+
 export interface UserLoginRes {
     data:{
 		user:{
@@ -17,6 +18,13 @@ export interface UserLoginRes {
 		code:number,
 		message:string
 	}
+}
+
+export interface regReqistData {
+	email: string,
+	systemName: string,
+	firstName: string,
+	lastName: string
 }
 
 export interface loginObj {
